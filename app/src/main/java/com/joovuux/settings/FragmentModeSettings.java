@@ -174,9 +174,6 @@ public class FragmentModeSettings extends Fragment {
                         Camera.sendSettings("on", ModeSettings.AUDIO + mode);
                         ((MyApp)getActivity().getApplication()).getSettingsMap().put(ModeSettings.AUDIO + mode, "on");
 
-                        Camera.sendSettings("on", ModeSettings.ROTATE_VIDEO_180_DEGREES + mode);
-                        ((MyApp)getActivity().getApplication()).getSettingsMap().put(ModeSettings.ROTATE_VIDEO_180_DEGREES + mode, "on");
-
                         Camera.sendSettings("on", ModeSettings.LOOP_RECORDING + mode);
                         ((MyApp)getActivity().getApplication()).getSettingsMap().put(ModeSettings.LOOP_RECORDING + mode, "on");
 
@@ -199,6 +196,8 @@ public class FragmentModeSettings extends Fragment {
                         Camera.sendSettings(ModeSettings.dataSpinnerVideoResolutions[0], ModeSettings.VIDEO_RESOLUTION + mode);
                         ((MyApp)getActivity().getApplication()).getSettingsMap().put(ModeSettings.VIDEO_RESOLUTION + mode, ModeSettings.dataSpinnerVideoResolutions[0]);
 
+                        Camera.sendSettings(ModeSettings.dataSpinnerAutoRotate[0], ModeSettings.AUTO_ROTATE + mode);
+                        ((MyApp)getActivity().getApplication()).getSettingsMap().put(ModeSettings.AUTO_ROTATE + mode, ModeSettings.dataSpinnerAutoRotate[0]);
                         return null;
                     }
 
@@ -249,8 +248,6 @@ public class FragmentModeSettings extends Fragment {
 
         initToggle(toggleAudio, ModeSettings.AUDIO);
 
-        initToggle(toggleRotate180Degrees, ModeSettings.ROTATE_VIDEO_180_DEGREES);
-
         initToggle(toggleLoopRecording, ModeSettings.LOOP_RECORDING);
 
         newSpinnerCreate(R.id.tvVideoBitRates, R.id.lvVideoBitRates, ModeSettings.dataSpinnerVideoBitRates, ModeSettings.VIDEO_BITRATES);
@@ -258,12 +255,8 @@ public class FragmentModeSettings extends Fragment {
 
         newSpinnerCreate(R.id.tvVideoClipLenght, R.id.lvVideoClipLenght, ModeSettings.dataSpinnerVideoClipLenght, ModeSettings.VIDEO_CLIP_LENGHT);
 //        initSpinner(ModeSettings.dataSpinnerVideoClipLenght, spinnerVideoClipLenght, ModeSettings.VIDEO_CLIP_LENGHT);
-
 //        newSpinnerCreate(R.id.tvWDR, R.id.lvWDR, ModeSettings.dataSpinnerWDR, ModeSettings.WDR);
 //        initSpinner(ModeSettings.dataSpinnerWDR, spinnerWDR, ModeSettings.WDR);
-
-
-
 //        initSpinner(ModeSettings.dataSpinnerFieldOfView, spinnerFieldOfView, ModeSettings.FIELD_OF_VIEW);
 
         newSpinnerCreate(R.id.tvTimeLapseVideo, R.id.lvTimeLapseVideo, ModeSettings.dataSpinnerTimeLapseVideo, ModeSettings.TIME_LAPSE_VIDEO);
@@ -272,7 +265,6 @@ public class FragmentModeSettings extends Fragment {
         newSpinnerCreate(R.id.tvAutoRotate, R.id.lvAutoRotate, ModeSettings.dataSpinnerAutoRotate, ModeSettings.AUTO_ROTATE);
 
         initToggle(toggleWDR, ModeSettings.WDR);
-
 
         if(((TextView)view.findViewById(R.id.tvVideoResolutions)).getText().toString().contains("HDR") ||
                 ((TextView)view.findViewById(R.id.tvTimeLapseVideo)).getText().toString().contains("sec") ||
@@ -566,12 +558,10 @@ public class FragmentModeSettings extends Fragment {
                 if(option == null){
                     toggle.setChecked(false);
                 } else {
-                    if(!key.equalsIgnoreCase(ModeSettings.ROTATE_VIDEO_180_DEGREES)){
+                    //if(!key.equalsIgnoreCase(ModeSettings.ROTATE_VIDEO_180_DEGREES))
                         toggle.setChecked(option.equalsIgnoreCase("on"));
-                    } else {
-                        toggle.setChecked(option.equalsIgnoreCase("off"));
-                    }
-
+                    //else
+                    //    toggle.setChecked(option.equalsIgnoreCase("off"));
                 }
 
                 checkLogik(key, toggle);

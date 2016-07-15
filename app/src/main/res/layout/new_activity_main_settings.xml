@@ -530,7 +530,6 @@
                 android:layout_height="50dp"
                 android:id="@+id/PowerOffDisconnect"
                 android:background="#f8f8f8"
-                android:visibility="gone"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp">
@@ -557,11 +556,11 @@
                     android:textOn="On"
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/textView10"
-
+                    android:background="#f8f8f8"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    android:visibility="gone" />
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -1396,7 +1395,42 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true" />
             </RelativeLayout>
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/LowBatteryWarning"
+                android:background="#f8f8f8"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp" >
 
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Low Battery Warning"
+                    android:id="@+id/textView75"
+                    android:textSize="17dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textColor="#999999"
+                    android:layout_marginLeft="5dp" />
+
+                <ToggleButton
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/toggleLowBatteryWarning"
+                    android:background="@drawable/selector_toggle_design"
+                    android:textOff="OFF"
+                    android:textOn="ON"
+                    android:layout_centerVertical="true"
+                    android:textColor="#fff"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -87,6 +87,7 @@ public class ActivityMainSettings extends Activity{
     private ToggleButton toggleCarPlateStamp;
     private ToggleButton toggleConnectionLog;
     private ToggleButton toggleTimedMode;
+    private ToggleButton toggleLowBatteryWarning;
 //    private Spinner spinnerArtificialLightFrequency;
     private Spinner spinnerSpeedUnit;
 
@@ -145,13 +146,6 @@ public class ActivityMainSettings extends Activity{
             }
         }
 
-
-
-
-
-
-
-
         tvCameraTime = (TextView) findViewById(R.id.tvCameraTime);
         tvCameraTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,7 +166,7 @@ public class ActivityMainSettings extends Activity{
 
         toggleTimedMode = (ToggleButton) findViewById(R.id.toggleTimeMode);
 
-
+        toggleLowBatteryWarning = (ToggleButton) findViewById(R.id.toggleLowBatteryWarning);
 
 //        spinnerArtificialLightFrequency = (Spinner) findViewById(R.id.spinnerArtificialLightFrequency);
 //        spinnerArtificialLightFrequency.setOnTouchListener(onTouchListener);
@@ -654,7 +648,7 @@ public class ActivityMainSettings extends Activity{
                 ((MyApp) getApplication()).getSettingsMap().put(MainSettings.SPINNER_STANDBY_TIME, MainSettings.dataSpinnerStandbyTime[1]);
 
 //                        Camera.sendSettings(MainSettings.dataSpinnerPowerOffDisconnect[0], MainSettings.SPINNER_POWER_OFF_DISCONNECT);
-                ((MyApp) getApplication()).getSettingsMap().put(MainSettings.SPINNER_POWER_OFF_DISCONNECT, MainSettings.dataSpinnerPowerOffDisconnect[0]);
+                ((MyApp) getApplication()).getSettingsMap().put(MainSettings.SPINNER_POWER_OFF_DISCONNECT, MainSettings.dataSpinnerPowerOffDisconnect[1]);
 
 //                        Camera.sendSettings("off", MainSettings.TOGGLE_MOTION_DETECTION);
                 ((MyApp) getApplication()).getSettingsMap().put(MainSettings.TOGGLE_MOTION_DETECTION, "off");
@@ -685,6 +679,8 @@ public class ActivityMainSettings extends Activity{
 
 //                        Camera.sendSettings("off", ModeSettings.TOGGLE_TIMED_MODE);
                 ((MyApp) getApplication()).getSettingsMap().put(ModeSettings.TOGGLE_TIMED_MODE, "off");
+
+                ((MyApp) getApplication()).getSettingsMap().put(ModeSettings.LOW_BATTERY_WARNING, "off");
 
                 return null;
             }
@@ -737,7 +733,7 @@ public class ActivityMainSettings extends Activity{
             return false;
         }
 
-        if(!((TextView) findViewById(R.id.tvPowerOffDisconnect)).getText().toString().equals(MainSettings.dataSpinnerPowerOffDisconnect[0])){
+        if(!((TextView) findViewById(R.id.tvPowerOffDisconnect)).getText().toString().equals(MainSettings.dataSpinnerPowerOffDisconnect[1])){
             return false;
         }
 
@@ -784,6 +780,10 @@ public class ActivityMainSettings extends Activity{
             return false;
         }
 
+        if(toggleLowBatteryWarning.isChecked()){
+            return false;
+        }
+
         return true;
 
     }
@@ -804,6 +804,8 @@ public class ActivityMainSettings extends Activity{
         progDailog = ProgressDialog.show(this, null, "loading current settings", true);
 
         initToggle(toggleTimedMode, ModeSettings.TOGGLE_TIMED_MODE);
+        initToggle(toggleLowBatteryWarning, ModeSettings.LOW_BATTERY_WARNING);
+
         initModeTime();
 //        newSpinnerCreate(R.id.tvArtificialLightFrequency, R.id.lvArtificialLightFrequency, ModeSettings.dataSpinnerArtificialLightFrequency, ModeSettings.ARTIFICIAL_LIGHT_FREQUENCY);
 //        initSpinner(ModeSettings.dataSpinnerArtificialLightFrequency, spinnerArtificialLightFrequency, ModeSettings.ARTIFICIAL_LIGHT_FREQUENCY);

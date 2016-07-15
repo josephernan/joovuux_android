@@ -13,7 +13,6 @@ public class ModeSettings {
     public static final String VIDEO_RESOLUTION = "video_resolution";
     public static final String VIDEO_TIME_STAMP = "video_timestamp";
     public static final String AUDIO = "audio";
-    public static final String ROTATE_VIDEO_180_DEGREES = "rotate_video";
     public static final String LOOP_RECORDING = "loop_record";
     public static final String VIDEO_BITRATES = "video_quality";
     public static final String VIDEO_CLIP_LENGHT = "video_length";
@@ -31,15 +30,16 @@ public class ModeSettings {
     public static final String ROTATE_PHOTOS_180_DEGREES = "rotate_photo_180_degrees";
     public static final String TIME_LAPSE_PHOTO = "time_lapse_photo";
     public static final String AUTO_ROTATE = "rotate_video";
+    public static final String LOW_BATTERY_WARNING = "low_battery_warning";
 
-    public static final String[] KEYS = {VIDEO_RESOLUTION, VIDEO_TIME_STAMP, AUDIO, ROTATE_VIDEO_180_DEGREES, LOOP_RECORDING,
+    public static final String[] KEYS = {VIDEO_RESOLUTION, VIDEO_TIME_STAMP, AUDIO, LOOP_RECORDING,
             VIDEO_BITRATES, VIDEO_CLIP_LENGHT, WDR, FIELD_OF_VIEW, TIME_LAPSE_VIDEO, TOGGLE_TIMED_MODE, DISPLAY_SPEED, SPINNER_BURST_PHOTO_MODE,
-            ARTIFICIAL_LIGHT_FREQUENCY, LDWS, FBWS, DATE_TIMESTAMP, PHOTO_RESOLUTION, ROTATE_PHOTOS_180_DEGREES, TIME_LAPSE_PHOTO};
+            ARTIFICIAL_LIGHT_FREQUENCY, LDWS, FBWS, DATE_TIMESTAMP, PHOTO_RESOLUTION, ROTATE_PHOTOS_180_DEGREES, TIME_LAPSE_PHOTO, AUTO_ROTATE, LOW_BATTERY_WARNING};
 
 
     public static final String[] dataSpinnerBurstPhotoMode = {"off", "5", "10"};
 //    public static final String[] dataSpinnerVideoResolutions = {"2560x1080 30P 21:9", "2304x1296 30P 16:9", "1920x1080 60P 16:9", "1920x1080 45P 16:9", "HDR 1920x1080 30P 16:9", "1920x1080 30P 16:9", "1280x720 60P 16:9", "1280x720 30P 16:9"};
-public static final String[] dataSpinnerVideoResolutions = {"2560x1080 30P 21:9","2304x1296 30P 16:9","1920x1080 60P 16:9", "1920x1080 45P 16:9", "1920x1080 30P 16:9","HDR 1920x1080 30P 16:9","1280x720 60P 16:9","1280x720 30P 16:9"};
+    public static final String[] dataSpinnerVideoResolutions = {"2560x1080 30P 21:9","2304x1296 30P 16:9","1920x1080 60P 16:9", "1920x1080 45P 16:9", "1920x1080 30P 16:9","HDR 1920x1080 30P 16:9","1280x720 60P 16:9","1280x720 30P 16:9"};
     public static final String[] dataSpinnerVideoBitRates = {"S.Fine", "Fine", "Normal"};
     public static final String[] dataSpinnerVideoClipLenght = {"1_min", "2_min", "3_min", "5_min", "10_min", "continuous"};
     public static final String[] dataSpinnerWDR = {"off", "on"};
@@ -57,8 +57,6 @@ public static final String[] dataSpinnerVideoResolutions = {"2560x1080 30P 21:9"
         initToggle( ModeSettings.VIDEO_TIME_STAMP, context);
 
         initToggle( ModeSettings.AUDIO, context);
-
-        initToggle( ModeSettings.ROTATE_VIDEO_180_DEGREES, context);
 
         initToggle( ModeSettings.LOOP_RECORDING, context);
 
@@ -84,6 +82,8 @@ public static final String[] dataSpinnerVideoResolutions = {"2560x1080 30P 21:9"
         initToggle( ModeSettings.LDWS, context);
 
         initToggle( ModeSettings.FBWS, context);
+
+        initToggle( ModeSettings.LOW_BATTERY_WARNING, context);
 
     }
 

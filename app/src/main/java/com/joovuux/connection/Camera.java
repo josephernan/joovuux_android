@@ -829,6 +829,12 @@ public final class Camera {
 
             JSONObject json = makeServerRequest(startDownload);
             if(!(json.getInt("rval") == 0)){
+                progressBar.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        downloadProgress.dismiss();
+                    }
+                });
                 return;
             }
 
@@ -838,6 +844,7 @@ public final class Camera {
             byte[] bytes = new byte[30000];
             Log.d("download:", "start: " + fileName);
             long size = json.getLong("size");
+
             int percentsOfDownload = 0;
 
             while (true) {
@@ -897,6 +904,12 @@ public final class Camera {
 
         } catch (Exception e) {
             e.printStackTrace();
+            progressBar.post(new Runnable() {
+                @Override
+                public void run() {
+                    downloadProgress.dismiss();
+                }
+            });
         }
     }
 

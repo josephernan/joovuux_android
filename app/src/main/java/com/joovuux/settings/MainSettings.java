@@ -37,7 +37,7 @@ public class MainSettings {
     public static final String[] dataSpinnerDefaultModeCameraStarts = {"mode1", "mode2"};
     public static final String[] dataSpinnerPowerOnAutoRecord = {"Button only", "Auto Start"};
     public static final String[] dataSpinnerStandbyTime = {"off", "1_min" , "3_min", "5_min"};
-    public static final String[] dataSpinnerPowerOffDisconnect = {/*"immediate",*/ "3_sec"};
+    public static final String[] dataSpinnerPowerOffDisconnect = {"1 sec", "3 sec", "10 sec"};
     public static final String[] dataSpinnerMotionDetectionSensitivity = {"high", "medium", "low"};
     public static final String[] dataSpinnerMotionTurnOff = {"5s", "10s", "20s", "30s", "1 minute"};
     public static final String[] dataSpinnerTVOut = {"NTSC", "PAL"};

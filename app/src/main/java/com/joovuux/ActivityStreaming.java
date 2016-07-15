@@ -571,11 +571,6 @@ public class ActivityStreaming extends Activity {
 		TextView tvAudio = (TextView) findViewById(R.id.tvAudio);
 		setCurrentOption(tvAudio, ModeSettings.AUDIO);
 
-
-		TextView tvRotate180Degrees = (TextView) findViewById(R.id.tvRotate180Degrees);
-		setCurrentOption(tvRotate180Degrees, ModeSettings.ROTATE_VIDEO_180_DEGREES + mode);
-
-
 		TextView tvVideoBirRates = (TextView) findViewById(R.id.tvVideoBirRates);
 		setCurrentOption(tvVideoBirRates, ModeSettings.VIDEO_BITRATES + mode);
 
@@ -592,10 +587,6 @@ public class ActivityStreaming extends Activity {
 		setCurrentOption(tvFieldOfView, ModeSettings.FIELD_OF_VIEW + mode);
 
 		startStream();
-
-
-
-
 
 	}
 

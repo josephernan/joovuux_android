@@ -110,9 +110,6 @@ public class ActivityGallery extends Activity{
 
 
         initFilters();
-
-
-
     }
 
     private void initFilters() {
