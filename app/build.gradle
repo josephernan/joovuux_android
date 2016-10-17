@@ -30,7 +30,7 @@ android {
         applicationId "com.joovuux"
         minSdkVersion 17
         targetSdkVersion 23
-        versionCode 40
+        versionCode 49
         versionName "1.0"
     }
     buildTypes {

@@ -168,6 +168,7 @@ public class NewVideoActivity extends Fragment implements IVLCVout.Callback, Lib
             libvlc = new LibVLC(options);
 
             libvlc.setOnHardwareAccelerationError(this);
+
             holder.setKeepScreenOn(true);
 
             // Create media player
@@ -216,8 +217,6 @@ public class NewVideoActivity extends Fragment implements IVLCVout.Callback, Lib
 
         mVideoWidth = 0;
         mVideoHeight = 0;
-
-
     }
 
     /*************
@@ -255,7 +254,6 @@ public class NewVideoActivity extends Fragment implements IVLCVout.Callback, Lib
         if(mMediaPlayer != null){
             mMediaPlayer.play();
         }
-
     }
 
     public void pause() {

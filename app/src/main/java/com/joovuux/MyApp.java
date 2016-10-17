@@ -119,12 +119,12 @@ public class MyApp extends Application {
     public void connect(final Context context) {
         setConnecting(true);
         progDailog = ProgressDialog.show(context, null, "Connecting...", true);
+        progDailog.setCancelable(true);
 
 
         new AsyncTask<Void, Void, Boolean>() {
             @Override
             protected Boolean doInBackground(Void... params) {
-
 
                 if(!Camera.checkWiFiConnectedName(MyApp.this)){
                     InstanceID instanceID = InstanceID.getInstance(MyApp.this);
@@ -134,12 +134,13 @@ public class MyApp extends Application {
                         TimeUnit.SECONDS.sleep(3);
                         Log.d("TOKEN", token);
                     } catch (IOException e) {
+                        progDailog.dismiss();
                         e.printStackTrace();
                     } catch (InterruptedException e) {
+                        progDailog.dismiss();
                         e.printStackTrace();
                     }
                 }
-
 
                 if(Camera.checkWiFiConnectedName(MyApp.this) && Camera.getToken(context)){
                     return Camera.pingCamera();
@@ -164,8 +165,6 @@ public class MyApp extends Application {
 
                     if(getSharedPreferences("MainSettings", Context.MODE_PRIVATE).getString(MainSettings.CONNECTION_LOG, "off").equalsIgnoreCase("on")){
 //                        Toast.makeText(MyApp.this, Camera.getLogmessage(), Toast.LENGTH_LONG).show();
-
-
 //                        showLogDialog(context);
                     }
 

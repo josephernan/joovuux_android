@@ -113,17 +113,11 @@ public class    ModelImage implements Serializable{
             this.type = PHOTO_TYPE;
             this.lenght = 0;
         }
-
-
-        if (file.getPath().contains("_thm")){
+        else { //if (file.getPath().contains("mp4")){
             Log.d("VIDEO PATH", file.getAbsolutePath());
             this.type = VIDEO_TYPE;
         }
-
-
     }
-
-
 
     public long getSize() {
         return size;

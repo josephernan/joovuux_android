@@ -75,7 +75,7 @@
                 android:layout_height="55dp"
                 android:id="@+id/resetAllSettings"
                 android:background="#f8f8f8"
-                android:visibility="gone"
+
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp" >
@@ -306,6 +306,7 @@
                     <SeekBar
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:max="6"
                         android:id="@+id/seekBarWBSharpness" />
 
                     <FrameLayout
@@ -327,7 +328,7 @@
                             android:id="@+id/tvLineSharpness0"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
+                            android:gravity="left"
                             android:textStyle="bold"
                             android:textSize="16dp" />
 
@@ -351,7 +352,7 @@
                             android:id="@+id/tvLineSharpness2"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
+                            android:gravity="right"
                             android:textStyle="bold"
                             android:textSize="16dp" />
 
@@ -364,7 +365,8 @@
                         android:layout_height="18dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:progress="83"
+                        android:progress="3"
+                        android:max = "6"
                         android:layout_marginLeft="2dp" />
 
                     <LinearLayout
@@ -378,21 +380,22 @@
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="40dp"
+                            android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Soft"
+                            android:text="0"
                             android:id="@+id/tvNumberSharpness0"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
                             android:textStyle="bold"
-                            android:textSize="11dp" />
+                            android:textSize="11dp"
+                            android:layout_gravity="left"
+                            />
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Standard"
+                            android:text="3"
                             android:id="@+id/tvNumberSharpness1"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
@@ -405,13 +408,13 @@
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Hard"
+                            android:text="6"
                             android:id="@+id/tvNumberSharpness2"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
                             android:textStyle="bold"
-                            android:textSize="11dp" />
+                            android:textSize="11dp"
+                            android:gravity="right" />
 
                     </LinearLayout>
 
@@ -455,7 +458,9 @@
                     <SeekBar
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/seekBarContrast" />
+                        android:id="@+id/seekBarContrast"
+                        android:max="256"
+                        />
 
                     <FrameLayout
                         android:layout_width="match_parent"
@@ -476,7 +481,7 @@
                             android:id="@+id/tvLineContrast0"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
+                            android:gravity="left"
                             android:textStyle="bold"
                             android:textSize="16dp" />
 
@@ -500,7 +505,7 @@
                             android:id="@+id/tvLineContrast2"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
+                            android:gravity="right"
                             android:textStyle="bold"
                             android:textSize="16dp" />
 
@@ -513,7 +518,8 @@
                         android:layout_height="18dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:progress="90"
+                        android:progress="64"
+                        android:max="256"
                         android:layout_marginLeft="2dp" />
 
                     <LinearLayout
@@ -529,11 +535,11 @@
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Soft"
+                            android:text="0"
                             android:id="@+id/tvNumberContrast0"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
+                            android:gravity="left"
                             android:textStyle="bold"
                             android:textSize="11dp" />
 
@@ -541,7 +547,7 @@
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Standard"
+                            android:text="128"
                             android:id="@+id/tvNumberContrast1"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
@@ -554,11 +560,11 @@
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Hard"
+                            android:text="256"
                             android:id="@+id/tvNumberContrast2"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
+                            android:gravity="right"
                             android:textStyle="bold"
                             android:textSize="11dp" />
 
@@ -604,7 +610,8 @@
                     <SeekBar
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/seekBarNWB" />
+                        android:id="@+id/seekBarNWB"
+                        android:max="100"/>
 
                     <FrameLayout
                         android:layout_width="match_parent"
@@ -662,7 +669,8 @@
                         android:layout_height="18dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:progress="90"
+                        android:progress="50"
+                        android:max="100"
                         android:layout_marginLeft="2dp" />
 
                     <LinearLayout
@@ -719,16 +727,15 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:id="@+id/WhiteBalance"
-                android:visibility="gone">
+                android:id="@+id/Saturation">
 
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:background="#ffc9c9c9"
                     android:clickable="false"
-                    android:id="@+id/frameLayout5"
-                    android:layout_above="@+id/textView69"
+                    android:id="@+id/frameLayout5Saturation"
+                    android:layout_above="@+id/textView69Saturation"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_marginBottom="10dp" />
@@ -737,11 +744,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="WHITE BALANCE"
-                    android:id="@+id/textView69"
+                    android:text="SATURATION"
+                    android:id="@+id/textView69Saturation"
                     android:textSize="21dp"
                     android:textColor="#999999"
-                    android:layout_above="@+id/relativeLayout5"
+                    android:layout_above="@+id/relativeLayout5Saturation"
                     android:layout_centerHorizontal="true" />
 
                 <RelativeLayout
@@ -750,30 +757,34 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:layout_margin="15dp"
-                    android:id="@+id/relativeLayout5">
+                    android:id="@+id/relativeLayout5Saturation">
 
                     <SeekBar
                         android:layout_width="match_parent"
-                        android:layout_height="10dp"
-                        android:id="@+id/seekBarWB"
-                        android:layout_centerVertical="true"
-                        android:progress="84" />
+                        android:layout_height="wrap_content"
+                        android:id="@+id/seekBarWBSaturation"
+                        android:max="256"/>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#fff"></FrameLayout>
 
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:layout_alignParentTop="true">
+                        android:layout_marginTop="5dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:id="@+id/textView77"
-                            android:layout_weight="0.5"
+                            android:text="|"
+                            android:id="@+id/tvLineSaturation0"
+                            android:layout_weight="1"
                             android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
+                            android:gravity="left"
                             android:textStyle="bold"
                             android:textSize="16dp" />
 
@@ -782,7 +793,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="|"
-                            android:id="@+id/tvLineWB1"
+                            android:id="@+id/tvLineSaturation1"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
                             android:gravity="center_horizontal"
@@ -794,248 +805,44 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="|"
-                            android:id="@+id/tvLineWB3"
+                            android:id="@+id/tvLineSaturation2"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="16dp" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="|"
-                            android:id="@+id/tvLineWB5"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="16dp" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="|"
-                            android:id="@+id/tvLineWB7"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="16dp" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="|"
-                            android:id="@+id/tvLineWB9"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="16dp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="12dp">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="|"
-                            android:id="@+id/tvLineWB0"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="16dp" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="|"
-                            android:id="@+id/tvLineWB2"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="16dp" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="|"
-                            android:id="@+id/tvLineWB4"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="16dp" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="|"
-                            android:id="@+id/tvLineWB6"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="16dp" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="|"
-                            android:id="@+id/tvLineWB8"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="16dp" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:id="@+id/textView78"
-                            android:layout_weight="0.5"
-                            android:gravity="center_horizontal"
+                            android:gravity="right"
                             android:textStyle="bold"
                             android:textSize="16dp" />
 
                     </LinearLayout>
 
                     <com.joovuux.CustomProgressBar
-                        android:id="@+id/progressWB"
+                        android:id="@+id/progressSaturation"
                         style="@style/CustomProgressBar"
                         android:layout_width="match_parent"
                         android:layout_height="18dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:progress="10"
-                        android:layout_marginLeft="2dp"
-                        android:layout_alignParentBottom="false"
-                        android:layout_alignParentRight="false"
-                        android:layout_centerVertical="true"
-                        android:visibility="visible" />
+                        android:progress="64"
+                        android:max="256"
+                        android:layout_marginLeft="2dp" />
 
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/progressWB"
-                        android:layout_alignParentLeft="false"
+                        android:layout_below="@+id/progressSaturation"
+                        android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_marginTop="5dp"
-                        android:layout_alignParentBottom="true">
+                        android:layout_marginTop="5dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Auto"
-                            android:id="@+id/tvNumberWB0"
+                            android:text="0"
+                            android:id="@+id/tvNumberSaturation0"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="10.5dp" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="D400"
-                            android:id="@+id/tvNumberWB2"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="10.5dp"
-                            android:visibility="visible" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Sunny"
-                            android:id="@+id/tvNumberWB4"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="10.5dp" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="D900"
-                            android:id="@+id/tvNumberWB6"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="10.5dp"
-                            android:visibility="visible" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Flash"
-                            android:id="@+id/tvNumberWB8"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="10.5dp"
-                            android:visibility="visible" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:id="@+id/textView79"
-                            android:layout_weight="0.5"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="11dp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/progressWB"
-                        android:layout_alignParentLeft="false"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginTop="2dp">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:id="@+id/textView76"
-                            android:layout_weight="0.5"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
+                            android:gravity="left"
                             android:textStyle="bold"
                             android:textSize="11dp" />
 
@@ -1043,72 +850,31 @@
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Incadescent"
-                            android:id="@+id/tvNumberWB1"
+                            android:text="128"
+                            android:id="@+id/tvNumberSaturation1"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
                             android:gravity="center_horizontal"
                             android:textStyle="bold"
-                            android:textSize="10.5dp"
-                            android:textIsSelectable="false"
-                            android:visibility="visible" />
+                            android:textSize="11dp"
+                            android:textIsSelectable="false" />
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="D500"
-                            android:id="@+id/tvNumberWB3"
+                            android:text="256"
+                            android:id="@+id/tvNumberSaturation2"
                             android:layout_weight="1"
                             android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
+                            android:gravity="right"
                             android:textStyle="bold"
-                            android:textSize="10.5dp"
-                            android:visibility="visible" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Cloudy"
-                            android:id="@+id/tvNumberWB5"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="10.5dp" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="D1000"
-                            android:id="@+id/tvNumberWB7"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="10.5dp"
-                            android:visibility="visible" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Fluorescent"
-                            android:id="@+id/tvNumberWB9"
-                            android:layout_weight="1"
-                            android:textColor="#ff48d8b7"
-                            android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            android:textSize="10.5dp"
-                            android:visibility="visible" />
+                            android:textSize="11dp" />
 
                     </LinearLayout>
 
                 </RelativeLayout>
             </RelativeLayout>
-
         </LinearLayout>
     </ScrollView>
 

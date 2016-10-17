@@ -392,7 +392,7 @@ public class ActivityGallery extends Activity{
                         adapter.notifyDataSetChanged();
 
                         downloadProgress.setVisibility(View.GONE);
-                        tempImagesList.addAll(imagesList);
+//                        tempImagesList.addAll(imagesList);
 
                         sortByDate();
 
@@ -404,10 +404,6 @@ public class ActivityGallery extends Activity{
                 }.executeOnExecutor(Camera.getExecutorCameraCommands());
             }
         }.execute();
-
-
-
-
 
     }
 
@@ -532,16 +528,13 @@ public class ActivityGallery extends Activity{
         File directory = new File(directoryName);
 //        imagesList.clear();
 
-
-
-
         File[] fList = directory.listFiles();
         if(fList == null){
             return imagesList;
         }
 
         for (File file : fList) {
-            if ((file != null) && (file.isFile())) {
+            if ((file != null) && (file.isFile()) && !file.isDirectory()) {
 //                if(!file.getAbsoluteFile().toString().contains("MOV")){
                     imagesList.add(new ModelImage(file, this));
 //                }

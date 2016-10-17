@@ -484,8 +484,6 @@ public class ActivityStreaming extends Activity {
 				super.onPostExecute(cameraTime);
 				HashMap<String, String> settings = ((MyApp) getApplication()).getSettingsMap();
 
-
-
 				TextView tvDateformat = (TextView) findViewById(R.id.tvDateformat);
 				tvDateformat.setText(settings.get(MainSettings.SPINNER_DATE_FORMAT));
 
@@ -511,10 +509,8 @@ public class ActivityStreaming extends Activity {
 				}
 				tvCameraTime.setText(userDateFormat.format(date));
 
-
 				TextView tvBeepNoise = (TextView) findViewById(R.id.tvBeepNoise);
 				tvBeepNoise.setText(settings.get(MainSettings.TOGGLE_BEEP_NOISES));
-
 
 				TextView tvRecordingLedIndicator = (TextView) findViewById(R.id.tvRecordingLedIndicator);
 				tvRecordingLedIndicator.setText(settings.get(MainSettings.TOGGLE_RECORDING_LED_INDICATOR));
@@ -560,16 +556,32 @@ public class ActivityStreaming extends Activity {
 
 				TextView tvToTime = (TextView) findViewById(R.id.tvToTime);
 				tvToTime.setText(settings.get(MainSettings.TIME_MODE_FINISH_TIME));
+
+				TextView tvVideoTimeStamp = (TextView) findViewById(R.id.tvVideoTimeStamp);
+				tvVideoTimeStamp.setText(settings.get(ModeSettings.VIDEO_TIME_STAMP));
+
+				TextView tvLoopRecording = (TextView) findViewById(R.id.tvLoopRecording);
+				tvLoopRecording.setText(settings.get(ModeSettings.LOOP_RECORDING));
+
+				TextView tvTimeLapseVideo = (TextView) findViewById(R.id.tvTimeLapseVideo);
+				tvTimeLapseVideo.setText(settings.get(ModeSettings.TIME_LAPSE_VIDEO));
+
+				TextView tvPowerOnDelay = (TextView) findViewById(R.id.tvPowerOnDelay);
+				tvPowerOnDelay.setText(settings.get(MainSettings.SPINNER_POWER_ON_DELAY));
+
+				TextView tvLowBatteryWarning = (TextView) findViewById(R.id.tvLowBatteryWarning);
+				tvLowBatteryWarning.setText(settings.get(ModeSettings.LOW_BATTERY_WARNING));
 			}
 		}.executeOnExecutor(Camera.getExecutorCameraCommands());
-
-
 
 		TextView tvVideoResolution = (TextView) findViewById(R.id.tvVideoResolution);
 		setCurrentOption(tvVideoResolution, ModeSettings.VIDEO_RESOLUTION + mode);
 
 		TextView tvAudio = (TextView) findViewById(R.id.tvAudio);
 		setCurrentOption(tvAudio, ModeSettings.AUDIO);
+
+		TextView tvRotateVideo = (TextView) findViewById(R.id.tvRotate180Degrees);
+		setCurrentOption(tvRotateVideo, ModeSettings.AUTO_ROTATE);
 
 		TextView tvVideoBirRates = (TextView) findViewById(R.id.tvVideoBirRates);
 		setCurrentOption(tvVideoBirRates, ModeSettings.VIDEO_BITRATES + mode);

@@ -670,7 +670,7 @@ public final class Camera {
             MediaCodec asd = MediaCodec.createDecoderByType("video/avc");
             final YuvImage image = new YuvImage(data, ImageFormat.NV21,
                     380, 264, null);
-            File file = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/joovuux/gallery/" + name.replace("MOV", "JPEG"));
+            File file = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/joovuux/gallery/" + name.replace("MP4", "JPEG"));
             final FileOutputStream filecon = new FileOutputStream(file);
             new AsyncTask<Void, Void, Void>() {
                 @Override
@@ -721,13 +721,16 @@ public final class Camera {
 
             final LinkedList<String> fileNames = new LinkedList<>();
 
-
             makeServerRequest(send1284);
             makeServerRequest(send1283DCIM);
             makeServerRequest(send1282);
             makeServerRequest(send1284);
             makeServerRequest(send1283MEDIA);
 
+            final File dir = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/joovuux/gallery/");
+            if(!dir.exists()){
+                dir.mkdirs();
+            }
 
             filesMap.clear();
             JSONObject jsonObject = makeServerRequest(send1282);
@@ -738,31 +741,32 @@ public final class Camera {
                     String key = file.keys().next();
                     filesMap.put(key, file.getString(key));
                     fileNames.add(key);
-                    if (key.contains("_thm")){
+                    if (key.contains("MP4") || key.contains("MOV")){
                         String metadata = ((JSONObject) jsonArray.get(i)).getString(key);
 
                         String size = metadata.substring(0, metadata.indexOf(" "));
                         String stringDate = metadata.substring(metadata.indexOf("|") + 1, metadata.length());
                         long date = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(stringDate).getTime();
                         Log.d("8797", " DATE  = " + stringDate);
-                        ModelImage image = new ModelImage(new File(ModelImage.VIDEO_URL + key), null, ""/*downloadImageForVide(key.replace("_thm", ""))*/);
+                        ModelImage image = new ModelImage(new File(ModelImage.VIDEO_URL + key), null, ""); //downloadImageForVide(key.replace("_thm", "")));
                         image.setIsCamera(true);
                         image.setSize(Long.parseLong(size));
                         image.setDate(date);
 
                         boolean contains = false;
 
-                        for(ModelImage modelImage : imagesList){
-                            //if(modelImage.getFile().getAbsolutePath().contains(image.getFile().getName().replace("_thm.MOV", "").replace(".MOV", ""))){
-                                contains = true;
-                            //}
-                        }
-                        if(!contains) {
-                            models.add(image);
-                        }
-
-
-
+//                        for(ModelImage modelImage : imagesList){
+//                            if(modelImage.getFile().getAbsolutePath().contains(image.getFile().getName())){
+//                                contains = true;
+//                            }
+                            final File m_file = new File(dir.getAbsolutePath() + "/" + image.getFile().getName());
+                            if (!m_file.exists()) {
+                                models.add(image);
+                            }
+//                        }
+//                        if(!contains) {
+//                            models.add(image);
+//                        }
 
 //                        downloadImageForVide(key.replace("_thm", ""));
                     }
@@ -823,7 +827,6 @@ public final class Camera {
             startDownload.put("offset", 0);
             startDownload.put(PARAM, fileName);
             startDownload.put(TOKEN, token);
-
 
             send260();
 
@@ -1023,7 +1026,7 @@ public final class Camera {
                 dir.mkdirs();
             }
 //            final File tempFile = new File(dir.getAbsolutePath() + "/" + "temp" + name.replace("MOV", "jpg")  );
-            final File tempFile = new File(dir.getAbsolutePath() + "/" + "temp" + name.replace(".MOV", "")  );
+            final File tempFile = new File(dir.getAbsolutePath() + "/" + "temp" + name.replace(".MP4", "")  );
 //            final File file = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/joovuux/gallery/" + fileName.replace("MOV", "JPEG"));
             if (tempFile.exists()) {
                 return "";
@@ -1034,8 +1037,6 @@ public final class Camera {
             getVideoThumb.put(PARAM, DCIM_100_MEDIA + name);
             getVideoThumb.put(TOKEN, token);
             getVideoThumb.put(TYPE, "idr");
-
-
 
             JSONObject json = makeServerRequest(getVideoThumb);
 

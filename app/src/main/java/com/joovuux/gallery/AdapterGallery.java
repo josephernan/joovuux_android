@@ -67,7 +67,7 @@ public class AdapterGallery extends GrandAdapter<ModelImage> {
         }
 
         String path = Uri.fromFile(getItem(position).getFile()).toString();
-        if(path.contains("MOV")){
+        if(path.contains("MOV") || path.contains("MP4")){
             Log.d("VIDEO", path);
             LayoutInflater inf = LayoutInflater.from(mainActivity);
             View videoView = inf.inflate(R.layout.item_gallery_video, null);

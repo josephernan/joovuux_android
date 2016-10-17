@@ -27,6 +27,7 @@ import android.widget.VerticalSeekBar;
 import com.joovuux.circularseekbar.DoughterCircularSeekBar;
 import com.joovuux.connection.Camera;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -39,11 +40,11 @@ import com.joovuux.settings.ModeSettings;
 
 public class ActivityWhiteBalance extends Activity {
 
-    public static final String WHITE_BALANCE_SPINNER = "wb";
-
-    public static final String EXPOSURE = "Exposure";
-    public static final String SHARPNESS = "Sharpness";
-    public static final String CONTRAST = "Contrast";
+    public static final String WHITE_BALANCE_SPINNER = "white_balance";
+    public static final String EXPOSURE = "exposure";
+    public static final String SHARPNESS = "sharpness";
+    public static final String CONTRAST = "contrast";
+    public static final String SATURATION = "saturation";
 
     public static final String[] EXPOSURE_DATA = {"+2.0", "+1.7", "+1.3", "+1.0", "+0.7", "+0.3", "0.0", "-0.3", "-0.7", "-1.0", "-1.3", "-1.7", "-2.0"};
     public static final String[] SHARPNESS_DATA = {"SOFT", "STANDARD", "HARD"};
@@ -65,7 +66,7 @@ public class ActivityWhiteBalance extends Activity {
     private SeekBar seekBarWBSharpness;
     private SeekBar seekBarContrast;
     private SeekBar seekBarWB;
-
+    private SeekBar seekBarSaturation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -113,8 +114,6 @@ public class ActivityWhiteBalance extends Activity {
             }
         });
 
-
-
         final TextView[] tvLinesSharpness = {
                 (TextView) findViewById(R.id.tvLineSharpness0),
                 (TextView) findViewById(R.id.tvLineSharpness1),
@@ -142,47 +141,50 @@ public class ActivityWhiteBalance extends Activity {
                         @Override
                         public void run() {
                             int progress = seekBarWBSharpness.getProgress();
-                            if (progress >= 0 && progress < 33) {
 
-                                        sendSettings(SHARPNESS_DATA[0], SHARPNESS);
-
-
-                            } else if (progress >= 33 && progress < 66) {
-
-                                        sendSettings(SHARPNESS_DATA[1], SHARPNESS);
-
-                            } else if (progress >= 66 && progress <= 100) {
-
-                                        sendSettings(SHARPNESS_DATA[2], SHARPNESS);
-
-                            }
+                            sendSettings(String.valueOf(progress), SHARPNESS);
+                            TextView textTemp = (TextView) findViewById(R.id.textView69Sharpness);
+                            textTemp.setText("SHARPNESS:"+String.valueOf(progress));
                         }
                     }, 10);
 
+                }
+                return false;
+            }
+        });
+        final TextView[] tvLinesSaturation = {
+                (TextView) findViewById(R.id.tvLineSaturation0),
+                (TextView) findViewById(R.id.tvLineSaturation1),
+                (TextView) findViewById(R.id.tvLineSaturation2),};
 
-//                    if (progress >= 0 && progress < 33) {
-//                        handler.postDelayed(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                sendSettings(SHARPNESS_DATA[0], SHARPNESS);
-//                            }
-//                        }, 200);
-//
-//                    } else if (progress >= 33 && progress < 66) {
-//                        handler.postDelayed(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                sendSettings(SHARPNESS_DATA[1], SHARPNESS);
-//                            }
-//                        }, 200);
-//                    } else if (progress >= 66 && progress <= 100) {
-//                        handler.postDelayed(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                sendSettings(SHARPNESS_DATA[2], SHARPNESS);
-//                            }
-//                        }, 200);
-//                    }
+        final TextView[] tvNumbersSaturation = {
+                (TextView) findViewById(R.id.tvNumberSaturation0),
+                (TextView) findViewById(R.id.tvNumberSaturation1),
+                (TextView) findViewById(R.id.tvNumberSaturation2),};
+
+        final CustomProgressBar progressSaturation = (CustomProgressBar) findViewById(R.id.progressSaturation);
+        seekBarSaturation = (SeekBar) findViewById(R.id.seekBarWBSaturation);
+        initProgressBar(tvLinesSaturation, tvNumbersSaturation, progressSaturation, seekBarSaturation, false);
+
+        progressSaturation.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(final View seekBar, MotionEvent event) {
+                Log.d("ACTION ", event.getAction() + "");
+                if (MotionEvent.ACTION_UP == event.getAction()) {
+
+                    Log.d("PROGRESS SS ",seekBarSaturation.getProgress()+"" );
+
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            int progress = seekBarSaturation.getProgress();
+
+                            sendSettings(String.valueOf(progress), SATURATION);
+                            TextView textTemp = (TextView) findViewById(R.id.textView69Saturation);
+                            textTemp.setText("SATURATION:"+String.valueOf(progress));
+                        }
+                    }, 10);
+
                 }
                 return false;
             }
@@ -212,35 +214,15 @@ public class ActivityWhiteBalance extends Activity {
                         @Override
                         public void run() {
                             int progress = seekBarContrast.getProgress();
-                            if (progress >= 0 && progress < 33) {
-
-
-                                        sendSettings(CONTRAST_DATA[0], CONTRAST);
-
-
-                            } else if (progress >= 33 && progress < 66) {
-
-
-                                        sendSettings(CONTRAST_DATA[1], CONTRAST);
-
-                            } else if (progress >= 66 && progress <= 100) {
-
-
-                                        sendSettings(CONTRAST_DATA[2], CONTRAST);
-
-                            }
+                            sendSettings(String.valueOf(progress), CONTRAST);
+                            TextView textTemp = (TextView) findViewById(R.id.textView69Contrast);
+                            textTemp.setText("CONTRAST:"+String.valueOf(progress));
                         }
                     }, 10);
-
-
-
                 }
                 return false;
             }
         });
-
-
-
 
         final TextView[] tvLinesNWB = {
                 (TextView) findViewById(R.id.tvLineNWB0),
@@ -267,126 +249,18 @@ public class ActivityWhiteBalance extends Activity {
                         public void run() {
                             int progress = seekBarNWB.getProgress();
                             if (progress >= 0 && progress < 33) {
-
-
                                 sendSettings(WHITE_BALANCE_SPINNER_DATA[0], WHITE_BALANCE_SPINNER);
-
                             } else if (progress >= 33 && progress < 66) {
-
-
                                 sendSettings(WHITE_BALANCE_SPINNER_DATA[1], WHITE_BALANCE_SPINNER);
-
                             } else if (progress >= 66 && progress <= 100) {
-
-
                                 sendSettings(WHITE_BALANCE_SPINNER_DATA[2], WHITE_BALANCE_SPINNER);
-
                             }
                         }
                     }, 10);
-
-
-
                 }
                 return false;
             }
         });
-
-
-
-//        final TextView[] tvLines = {
-//                (TextView) findViewById(R.id.tvLineWB0),
-//                (TextView) findViewById(R.id.tvLineWB1),
-//                (TextView) findViewById(R.id.tvLineWB2),
-//                (TextView) findViewById(R.id.tvLineWB3),
-//                (TextView) findViewById(R.id.tvLineWB4),
-//                (TextView) findViewById(R.id.tvLineWB5),
-//                (TextView) findViewById(R.id.tvLineWB6),
-//                (TextView) findViewById(R.id.tvLineWB7),
-//                (TextView) findViewById(R.id.tvLineWB8),
-//                (TextView) findViewById(R.id.tvLineWB9),};
-//
-//        final TextView[] tvNumbers = {
-//                (TextView) findViewById(R.id.tvNumberWB0),
-//                (TextView) findViewById(R.id.tvNumberWB1),
-//                (TextView) findViewById(R.id.tvNumberWB2),
-//                (TextView) findViewById(R.id.tvNumberWB3),
-//                (TextView) findViewById(R.id.tvNumberWB4),
-//                (TextView) findViewById(R.id.tvNumberWB5),
-//                (TextView) findViewById(R.id.tvNumberWB6),
-//                (TextView) findViewById(R.id.tvNumberWB7),
-//                (TextView) findViewById(R.id.tvNumberWB8),
-//                (TextView) findViewById(R.id.tvNumberWB9),};
-//
-//        final CustomProgressBar progressWB = (CustomProgressBar) findViewById(R.id.progressWB);
-//        seekBarWB = (SeekBar) findViewById(R.id.seekBarWB);
-//        initProgressBar(tvLines, tvNumbers, progressWB, seekBarWB, true);
-//
-//        progressWB.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(final View seekBar, MotionEvent event) {
-//                Log.d("ACTION", event.getAction() + " :: ");
-//                if (MotionEvent.ACTION_UP == event.getAction()) {
-//
-//                    handler.postDelayed(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            int progress = seekBarWB.getProgress();
-//                            if (progress >= 0 && progress < 10) {
-//
-//                                        sendSettings(WHITE_BALANCE_SPINNER_DATA[0], WHITE_BALANCE_SPINNER);
-//
-//
-//                            } else if (progress >= 10 && progress < 20) {
-//
-//                                        sendSettings(WHITE_BALANCE_SPINNER_DATA[1], WHITE_BALANCE_SPINNER);
-//
-//                            } else if (progress >= 20 && progress < 31) {
-//
-//                                        sendSettings(WHITE_BALANCE_SPINNER_DATA[2], WHITE_BALANCE_SPINNER);
-//
-//                            } else if (progress >= 31 && progress < 41) {
-//
-//                                        sendSettings(WHITE_BALANCE_SPINNER_DATA[3], WHITE_BALANCE_SPINNER);
-//
-//                            } else if (progress >= 41 && progress < 51) {
-//
-//                                        sendSettings(WHITE_BALANCE_SPINNER_DATA[4], WHITE_BALANCE_SPINNER);
-//
-//                            } else if (progress >= 51 && progress < 61) {
-//
-//                                        sendSettings(WHITE_BALANCE_SPINNER_DATA[5], WHITE_BALANCE_SPINNER);
-//
-//                            } else if (progress >= 61 && progress < 70) {
-//
-//                                        sendSettings(WHITE_BALANCE_SPINNER_DATA[6], WHITE_BALANCE_SPINNER);
-//
-//                            } else if (progress >= 70 && progress < 81) {
-//
-//                                        sendSettings(WHITE_BALANCE_SPINNER_DATA[7], WHITE_BALANCE_SPINNER);
-//
-//                            } else if (progress >= 81 && progress < 91) {
-//
-//                                        sendSettings(WHITE_BALANCE_SPINNER_DATA[8], WHITE_BALANCE_SPINNER);
-//
-//                            } else if (progress >= 91 && progress <= 100) {
-//
-//                                        sendSettings(WHITE_BALANCE_SPINNER_DATA[9], WHITE_BALANCE_SPINNER);
-//
-//                            }
-//                        }
-//                    }, 10);
-//
-//
-//
-//
-//                }
-//                return false;
-//            }
-//        });
-
-
-
 
         findViewById(R.id.btnResetAllSettings).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -396,12 +270,11 @@ public class ActivityWhiteBalance extends Activity {
                 new AsyncTask<Void, Void, Void>() {
                     @Override
                     protected Void doInBackground(Void... params) {
-                        Camera.sendSettings(CONTRAST_DATA[1], CONTRAST);
-                        Camera.sendSettings(SHARPNESS_DATA[1], SHARPNESS);
+                        Camera.sendSettings("64", CONTRAST);
+                        Camera.sendSettings("3", SHARPNESS);
                         Camera.sendSettings(EXPOSURE_DATA[6], EXPOSURE);
                         Camera.sendSettings(WHITE_BALANCE_SPINNER_DATA[0], WHITE_BALANCE_SPINNER);
-
-
+                        Camera.sendSettings("64", SATURATION);
                         return null;
                     }
 
@@ -409,21 +282,18 @@ public class ActivityWhiteBalance extends Activity {
                     protected void onPostExecute(Void aVoid) {
                         super.onPostExecute(aVoid);
                         resetDialog.dismiss();
-                        setCurrentSettings(fatherSeekExposure, seekBarWBSharpness, seekBarContrast, seekBarWB);
-
-
+                        setCurrentSettings(fatherSeekExposure, seekBarWBSharpness, seekBarContrast, seekBarWB, seekBarSaturation);
                     }
                 }.executeOnExecutor(Camera.getExecutorCameraCommands());
             }
         });
-
-
     }
 
-    private void setCurrentSettings(CircularSeekBar fatherSeekExposure, SeekBar seekBarWBSharpness, SeekBar seekBarContrast, SeekBar seekBarWB) {
+    private void setCurrentSettings(CircularSeekBar fatherSeekExposure, SeekBar seekBarWBSharpness, SeekBar seekBarContrast, SeekBar seekBarWB, SeekBar seekBarSaturation) {
         progDailog = ProgressDialog.show(this, null, "loading...", true);
         setCurrentSeekSettings(EXPOSURE, fatherSeekExposure, EXPOSURE_DATA);
         setCurrentSeekSettings(SHARPNESS, seekBarWBSharpness, SHARPNESS_DATA);
+        setCurrentSeekSettings(SATURATION, seekBarSaturation, SHARPNESS_DATA);
         setCurrentSeekSettings(CONTRAST, seekBarContrast, CONTRAST_DATA);
         setCurrentSeekSettings(WHITE_BALANCE_SPINNER, seekBarWB, WHITE_BALANCE_SPINNER_DATA);
 
@@ -484,11 +354,7 @@ public class ActivityWhiteBalance extends Activity {
                     }
                 }
 
-
-
                 progressWB.setProgress(progress);
-
-
             }
 
             @Override
@@ -530,56 +396,55 @@ public class ActivityWhiteBalance extends Activity {
         new AsyncTask<Void, Void, Integer>() {
             @Override
             protected Integer doInBackground(Void... params) {
-                return getOptionPosition(data, Camera.getCurrentOption(type));
+                int value = 0;
+                if(type==EXPOSURE || type==WHITE_BALANCE_SPINNER){
+                    value = getOptionPosition(data, Camera.getCurrentOption(type));
+                }
+                else {
+                    try {
+                        value = Integer.parseInt(Camera.getCurrentOption(type));
+                    } catch (NumberFormatException nfe) {
+
+                    }
+                }
+                return value;
             }
             @Override
-            protected void onPostExecute(Integer integer) {
+            protected void onPostExecute(Integer opt_val) {
 
-                Log.e("INTEGER", integer + "  " + type);
+                Log.e("INTEGER:", opt_val + "  " + type);
 
                 if(seekBar instanceof CircularSeekBar){
-                    ((CircularSeekBar)seekBar).setProgress(integer);
+                    ((CircularSeekBar)seekBar).setProgress(opt_val);
                 } else {
-
-//                    if(type == SHARPNESS || type == CONTRAST){
-                        if (integer == 0) {
-                            ((ProgressBar)seekBar).setProgress(16);
-                        } else if (integer == 1) {
-                            ((ProgressBar)seekBar).setProgress(50);
-                        } else if (integer == 2) {
-                            ((ProgressBar)seekBar).setProgress(83);
+                    if(type == WHITE_BALANCE_SPINNER) {
+                        if (opt_val == 0) {
+                            ((ProgressBar) seekBar).setProgress(16);
+                        } else if (opt_val == 1) {
+                            ((ProgressBar) seekBar).setProgress(50);
+                        } else if (opt_val == 2) {
+                            ((ProgressBar) seekBar).setProgress(83);
                         }
-//                    } else {
-//                        if (integer == 0) {
-//                            ((ProgressBar)seekBar).setProgress(5);
-//                        } else if (integer == 1) {
-//                            ((ProgressBar)seekBar).setProgress(15);
-//                        } else if (integer == 2) {
-//                            ((ProgressBar)seekBar).setProgress(25);
-//                        } else if (integer == 3) {
-//                            ((ProgressBar)seekBar).setProgress(35);
-//                        } else if (integer == 4) {
-//                            ((ProgressBar)seekBar).setProgress(45);
-//                        } else if (integer == 5) {
-//                            ((ProgressBar)seekBar).setProgress(55);
-//                        } else if (integer == 6) {
-//                            ((ProgressBar)seekBar).setProgress(65);
-//                        } else if (integer == 7) {
-//                            ((ProgressBar)seekBar).setProgress(75);
-//                        } else if (integer == 8) {
-//                            ((ProgressBar)seekBar).setProgress(85);
-//                        } else if (integer == 9) {
-//                            ((ProgressBar)seekBar).setProgress(95);
-//                        }
-//                    }
-
+                    }
+                    else {
+                        ((ProgressBar) seekBar).setProgress(opt_val);
+                        if(type== SHARPNESS) {
+                            TextView textTemp = (TextView) findViewById(R.id.textView69Sharpness);
+                            textTemp.setText("SHARPNESS: " + String.valueOf(opt_val));
+                        }
+                        else if(type==CONTRAST){
+                            TextView textTemp = (TextView) findViewById(R.id.textView69Contrast);
+                            textTemp.setText("CONTRAST: " + String.valueOf(opt_val));
+                        }
+                        else if(type==SATURATION){
+                            TextView textTemp = (TextView) findViewById(R.id.textView69Saturation);
+                            textTemp.setText("SATURATION: " + String.valueOf(opt_val));
+                        }
+                    }
                 }
 
             }
         }.executeOnExecutor(Camera.getExecutorCameraCommands());
-
-
-
     }
 
     private int getOptionPosition(String[] data, String option){
@@ -604,7 +469,8 @@ public class ActivityWhiteBalance extends Activity {
                 while (myApp.isConnecting()){
                     try {
                         TimeUnit.MILLISECONDS.sleep(200);
-                    } catch (InterruptedException e) {
+                    }
+                    catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
@@ -614,7 +480,7 @@ public class ActivityWhiteBalance extends Activity {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                setCurrentSettings(fatherSeekExposure, seekBarWBSharpness, seekBarContrast, seekBarWB);
+                setCurrentSettings(fatherSeekExposure, seekBarWBSharpness, seekBarContrast, seekBarWB, seekBarSaturation);
             }
         }.execute();
 

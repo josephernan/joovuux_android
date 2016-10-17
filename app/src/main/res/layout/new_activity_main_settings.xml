@@ -277,7 +277,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Beep Noises"
+                    android:text="Beep Noise"
                     android:id="@+id/textView5"
                     android:textSize="17dp"
                     android:layout_centerVertical="true"
@@ -538,7 +538,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Power-Off Disconnect"
+                    android:text="Power Off Disconnect"
                     android:id="@+id/textView10"
                     android:textSize="17dp"
                     android:layout_centerVertical="true"
@@ -907,7 +907,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Car Plate Stamp"
+                    android:text="Car Plate Number Stamp"
                     android:id="@+id/textView28"
                     android:textSize="17dp"
                     android:layout_centerVertical="true"
@@ -946,7 +946,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Car Number"
+                    android:text="Car Plate Number"
                     android:id="@+id/textView56"
                     android:textColor="#999999"
                     android:textSize="17dp"
@@ -1399,6 +1399,66 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:id="@+id/PowerOnDelay"
+                android:background="#f8f8f8"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Power On Delay"
+                    android:id="@+id/textViewPowerOnDelay"
+                    android:textSize="17dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textColor="#999999"
+                    android:layout_marginLeft="5dp" />
+
+                <Spinner
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinnerPowerOnDelay"
+
+                    android:textOff="Off"
+                    android:textOn="On"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/textViewPowerOnDelay"
+                    android:background="#f8f8f8"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Option"
+                    android:id="@+id/tvPowerOnDelay"
+                    android:textColor="#555555"
+                    android:textSize="18dp"
+                    android:gravity="center_vertical|right"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="15dp" />
+            </RelativeLayout>
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="0dp"
+                android:divider="@null"
+                android:id="@+id/lvPowerOnDelay"
+                android:visibility="gone" />
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:id="@+id/LowBatteryWarning"
                 android:background="#f8f8f8"
                 android:layout_marginLeft="5dp"
@@ -1431,6 +1491,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true" />
             </RelativeLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

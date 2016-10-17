@@ -199,7 +199,6 @@ public class ActivityGalleryDescription extends Activity{
 
             btnDownload.setOnClickListener(new View.OnClickListener() {
 
-
                 @Override
                 public void onClick(View v) {
 
@@ -215,7 +214,6 @@ public class ActivityGalleryDescription extends Activity{
 
 
                     new AsyncTask<Void, Integer, Void>() {
-
 
                         @Override
                         protected Void doInBackground(Void... params) {
@@ -261,9 +259,6 @@ public class ActivityGalleryDescription extends Activity{
             videoActivity.setDescAvtivity(this);
 
             String path = (image.getFile().getAbsolutePath().contains("rtsp")) ? image.getFile().getAbsolutePath().replace("/rtsp:/", "RTSP://") : "file://" + image.getFile().getAbsolutePath();
-
-
-
 
             videoActivity.setStream(path);
 
@@ -345,8 +340,16 @@ public class ActivityGalleryDescription extends Activity{
                     new AsyncTask<Void, Void, Void>() {
                         @Override
                         protected Void doInBackground(Void... params) {
+                            final File dir = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/joovuux/gallery/");
+                            if(!dir.exists()){
+                                dir.mkdirs();
+                            }
+                            final File file = new File(dir.getAbsolutePath() + "/" + image.getFile().getName());
+                            if (file.exists()) {
+                                file.delete();
+                            }
                             Camera.deleteFile(image.getCameraPath());
-                            Camera.deleteFile(image.getCameraPath().replace("_thm", ""));
+//                            Camera.deleteFile(image.getCameraPath().replace("_thm", ""));
                             return null;
                         }
 

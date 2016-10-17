@@ -253,7 +253,30 @@
                                         android:text="INFORMATION"
                                         android:textColor="#fff" />
                                 </FrameLayout>
+                                <RelativeLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/rl_modesetting"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_marginTop="15dp" >
 
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:text="MODE SETTING"
+                                        android:id="@+id/tv_modesetting"
+                                        android:textColor="#999999"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_marginTop="0dp"
+                                        android:textSize="15dp"
+                                        android:gravity="center_horizontal" />
+
+                                </RelativeLayout>
                                 <RelativeLayout
                                     android:orientation="horizontal"
                                     android:layout_width="match_parent"
@@ -322,7 +345,40 @@
                                         android:layout_alignParentEnd="true"
                                         android:textSize="15dp" />
                                 </RelativeLayout>
+                                <RelativeLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:longClickable="true"
+                                    android:id="@+id/rtVideoTimeStamp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_marginTop="2dp">
 
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:text="Video Time Stamp:"
+                                        android:id="@+id/labelVideoTimeStamp"
+                                        android:textColor="#999999"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_marginTop="0dp"
+                                        android:textSize="15dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:id="@+id/tvVideoTimeStamp"
+                                        android:textColor="#ffdddddd"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_alignParentEnd="true"
+                                        android:textSize="15dp" />
+                                </RelativeLayout>
                                 <RelativeLayout
                                     android:orientation="horizontal"
                                     android:layout_width="match_parent"
@@ -336,7 +392,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textAppearance="?android:attr/textAppearanceMedium"
-                                        android:text="Rotate 180 Degrees:"
+                                        android:text="Image Rotation:"
                                         android:id="@+id/tvEx12"
                                         android:textColor="#999999"
                                         android:layout_alignParentLeft="true"
@@ -356,12 +412,12 @@
                                         android:layout_alignParentEnd="true"
                                         android:textSize="15dp" />
                                 </RelativeLayout>
-
                                 <RelativeLayout
                                     android:orientation="horizontal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:id="@+id/VideoBirRates"
+                                    android:longClickable="true"
+                                    android:id="@+id/lvLoopRecording"
                                     android:layout_marginLeft="5dp"
                                     android:layout_marginRight="5dp"
                                     android:layout_marginTop="2dp">
@@ -370,8 +426,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textAppearance="?android:attr/textAppearanceMedium"
-                                        android:text="Video Bit Rates:"
-                                        android:id="@+id/textView40"
+                                        android:text="Loop Recording:"
+                                        android:id="@+id/labelLoopRecording"
                                         android:textColor="#999999"
                                         android:layout_alignParentLeft="true"
                                         android:layout_marginLeft="0dp"
@@ -383,14 +439,13 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textAppearance="?android:attr/textAppearanceMedium"
-                                        android:id="@+id/tvVideoBirRates"
+                                        android:id="@+id/tvLoopRecording"
                                         android:textColor="#ffdddddd"
                                         android:layout_alignParentTop="true"
                                         android:layout_alignParentRight="true"
                                         android:layout_alignParentEnd="true"
                                         android:textSize="15dp" />
                                 </RelativeLayout>
-
                                 <RelativeLayout
                                     android:orientation="horizontal"
                                     android:layout_width="match_parent"
@@ -424,7 +479,39 @@
                                         android:layout_alignParentEnd="true"
                                         android:textSize="15dp" />
                                 </RelativeLayout>
+                                <RelativeLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/VideoBirRates"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_marginTop="2dp">
 
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:text="Video Bit Rates:"
+                                        android:id="@+id/textView40"
+                                        android:textColor="#999999"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_marginTop="0dp"
+                                        android:textSize="15dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:id="@+id/tvVideoBirRates"
+                                        android:textColor="#ffdddddd"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_alignParentEnd="true"
+                                        android:textSize="15dp" />
+                                </RelativeLayout>
                                 <RelativeLayout
                                     android:orientation="horizontal"
                                     android:layout_width="match_parent"
@@ -492,7 +579,39 @@
                                         android:layout_alignParentEnd="true"
                                         android:textSize="15dp" />
                                 </RelativeLayout>
+                                <RelativeLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/rlTimeLapseVideo"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_marginTop="2dp">
 
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:text="Time Lapse Video:"
+                                        android:id="@+id/labelTimeLapseVideo"
+                                        android:textColor="#999999"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_marginTop="0dp"
+                                        android:textSize="15dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:id="@+id/tvTimeLapseVideo"
+                                        android:textColor="#ffdddddd"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_alignParentEnd="true"
+                                        android:textSize="15dp" />
+                                </RelativeLayout>
                                 <RelativeLayout
                                     android:orientation="horizontal"
                                     android:layout_width="match_parent"
@@ -506,7 +625,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:textAppearance="?android:attr/textAppearanceMedium"
-                                        android:text="Main Settings"
+                                        android:text="MAIN SETTINGS"
                                         android:id="@+id/textView80"
                                         android:textColor="#999999"
                                         android:layout_alignParentLeft="true"
@@ -531,7 +650,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textAppearance="?android:attr/textAppearanceMedium"
-                                        android:text="Camera time:"
+                                        android:text="Camera Time:"
                                         android:id="@+id/textView83"
                                         android:textColor="#999999"
                                         android:layout_alignParentLeft="true"
@@ -633,7 +752,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textAppearance="?android:attr/textAppearanceMedium"
-                                        android:text="Recording LED indicator:"
+                                        android:text="Recording LED Indicator:"
                                         android:id="@+id/textView89"
                                         android:textColor="#999999"
                                         android:layout_alignParentLeft="true"
@@ -667,7 +786,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textAppearance="?android:attr/textAppearanceMedium"
-                                        android:text="Default Mode Caerma Starts:"
+                                        android:text="Default Mode Camera Starts:"
                                         android:id="@+id/textView91"
                                         android:textColor="#999999"
                                         android:layout_alignParentLeft="true"
@@ -701,7 +820,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textAppearance="?android:attr/textAppearanceMedium"
-                                        android:text="StandBy Time:"
+                                        android:text="Standby Time:"
                                         android:id="@+id/textView93"
                                         android:textColor="#999999"
                                         android:layout_alignParentLeft="true"
@@ -769,7 +888,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textAppearance="?android:attr/textAppearanceMedium"
-                                        android:text="Motion Turn OFF:"
+                                        android:text="Motion Turn Off:"
                                         android:id="@+id/textView97"
                                         android:textColor="#999999"
                                         android:layout_alignParentLeft="true"
@@ -873,7 +992,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textAppearance="?android:attr/textAppearanceMedium"
-                                        android:text="Car Plate Stamp:"
+                                        android:text="Car Plate Number Stamp:"
                                         android:id="@+id/textView103"
                                         android:textColor="#999999"
                                         android:layout_alignParentLeft="true"
@@ -907,7 +1026,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textAppearance="?android:attr/textAppearanceMedium"
-                                        android:text="Car Number:"
+                                        android:text="Car Plate Number:"
                                         android:id="@+id/textView105"
                                         android:textColor="#999999"
                                         android:layout_alignParentLeft="true"
@@ -1131,7 +1250,72 @@
                                         android:layout_alignParentEnd="true"
                                         android:textSize="15dp" />
                                 </RelativeLayout>
+                                <RelativeLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/rlPowerOnDelay"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_marginTop="2dp" >
 
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:text="Power On Delay:"
+                                        android:id="@+id/labelPowerOnDelay"
+                                        android:textColor="#999999"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_marginTop="0dp"
+                                        android:textSize="15dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:id="@+id/tvPowerOnDelay"
+                                        android:textColor="#ffdddddd"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_alignParentEnd="true"
+                                        android:textSize="15dp" />
+                                </RelativeLayout>
+                                <RelativeLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/rlLowBatteryWarning"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_marginTop="2dp" >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:text="Low Battery Warning:"
+                                        android:id="@+id/labelLowBatteryWarning"
+                                        android:textColor="#999999"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_marginLeft="0dp"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_marginTop="0dp"
+                                        android:textSize="15dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:id="@+id/tvLowBatteryWarning"
+                                        android:textColor="#ffdddddd"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_alignParentEnd="true"
+                                        android:textSize="15dp" />
+                                </RelativeLayout>
                             </LinearLayout>
                         </ScrollView>
                     </FrameLayout>

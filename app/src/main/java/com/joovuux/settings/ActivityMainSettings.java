@@ -33,6 +33,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.joovuux.ActiveActivitiesTracker;
+import com.joovuux.ActivityWhiteBalance;
 import com.joovuux.MyApp;
 import com.joovuux.Utils;
 import com.joovuux.connection.Camera;
@@ -78,6 +79,7 @@ public class ActivityMainSettings extends Activity{
     private Spinner spinnerPowerOnAutoRecord;
     private Spinner spinnerStandbyTime;
     private Spinner spinnerPowerOffDisconnect;
+    private Spinner spinnerPowerOnDelay;
     private ToggleButton toggleMotionDetection;
     private Spinner spinnerMotionDetectionSensitivity;
     private Spinner spinnerMotionTurnOff;
@@ -462,8 +464,6 @@ public class ActivityMainSettings extends Activity{
         characters.add('頁');
 
 
-
-
         etCarNumber = (EditText) findViewById(R.id.etCarNumber);
 
         etCarNumber.addTextChangedListener(new TextWatcher() {
@@ -483,10 +483,6 @@ public class ActivityMainSettings extends Activity{
                 }
 
             }
-
-
-
-
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -528,6 +524,9 @@ public class ActivityMainSettings extends Activity{
         spinnerPowerOffDisconnect = (Spinner) findViewById(R.id.spinnerPowerOffDisconnect);
         spinnerPowerOffDisconnect.setOnTouchListener(onTouchListener);
 
+        spinnerPowerOnDelay = (Spinner) findViewById(R.id.spinnerPowerOnDelay);
+        spinnerPowerOnDelay.setOnTouchListener(onTouchListener);
+
         spinnerMotionDetectionSensitivity = (Spinner) findViewById(R.id.spinnerMotionDetectionSensitivity);
         spinnerMotionDetectionSensitivity.setOnTouchListener(onTouchListener);
 
@@ -538,12 +537,8 @@ public class ActivityMainSettings extends Activity{
         spinnerTVOut.setOnTouchListener(onTouchListener);
 
         toggleSpeenStamp = (ToggleButton) findViewById(R.id.toggleSpeenStamp);
-
-
         spinnerSpeedUnit = (Spinner) findViewById(R.id.spinnerSpeedUnit);
         spinnerSpeedUnit.setOnTouchListener(onTouchListener);
-
-
 
         toggleSyncFateAndTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -556,14 +551,11 @@ public class ActivityMainSettings extends Activity{
         findViewById(R.id.btnResetAllSettings).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 resetSettings();
             }
 
 
         });
-
 
         if(checkSettingsIsDefault()){
             toggleResetSettingsToDefault.setEnabled(false);
@@ -650,6 +642,8 @@ public class ActivityMainSettings extends Activity{
 //                        Camera.sendSettings(MainSettings.dataSpinnerPowerOffDisconnect[0], MainSettings.SPINNER_POWER_OFF_DISCONNECT);
                 ((MyApp) getApplication()).getSettingsMap().put(MainSettings.SPINNER_POWER_OFF_DISCONNECT, MainSettings.dataSpinnerPowerOffDisconnect[1]);
 
+                ((MyApp) getApplication()).getSettingsMap().put(MainSettings.SPINNER_POWER_ON_DELAY, MainSettings.dataSpinnerPowerOnDelay[0]);
+
 //                        Camera.sendSettings("off", MainSettings.TOGGLE_MOTION_DETECTION);
                 ((MyApp) getApplication()).getSettingsMap().put(MainSettings.TOGGLE_MOTION_DETECTION, "off");
 
@@ -734,6 +728,9 @@ public class ActivityMainSettings extends Activity{
         }
 
         if(!((TextView) findViewById(R.id.tvPowerOffDisconnect)).getText().toString().equals(MainSettings.dataSpinnerPowerOffDisconnect[1])){
+            return false;
+        }
+        if(!((TextView) findViewById(R.id.tvPowerOnDelay)).getText().toString().equals(MainSettings.dataSpinnerPowerOnDelay[0])){
             return false;
         }
 
@@ -834,6 +831,8 @@ public class ActivityMainSettings extends Activity{
 
         newSpinnerCreate(R.id.tvPowerOffDisconnect, R.id.lvPowerOffDisconnect, MainSettings.dataSpinnerPowerOffDisconnect, MainSettings.SPINNER_POWER_OFF_DISCONNECT);
 //        initSpinner(dataSpinnerPowerOffDisconnect, spinnerPowerOffDisconnect, SPINNER_POWER_OFF_DISCONNECT);
+
+        newSpinnerCreate(R.id.tvPowerOnDelay, R.id.lvPowerOnDelay, MainSettings.dataSpinnerPowerOnDelay, MainSettings.SPINNER_POWER_ON_DELAY);
 
         initToggle(toggleMotionDetection, MainSettings.TOGGLE_MOTION_DETECTION);
 

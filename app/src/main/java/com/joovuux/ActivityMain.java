@@ -387,6 +387,7 @@ public class ActivityMain extends Activity {
                     protected void onPostExecute(String result) {
                         if(!result.equalsIgnoreCase("")){
                             Toast.makeText(ActivityMain.this, result, Toast.LENGTH_LONG).show();
+
                         }
 
                         super.onPostExecute(result);

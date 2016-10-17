@@ -11,6 +11,7 @@ public class MainSettings {
     public static final String SPINNER_POWER_ON_AUTO_RECORD = "spinnerPowerOnAutoRecord"; //
     public static final String SPINNER_STANDBY_TIME = "standby_time";
     public static final String SPINNER_POWER_OFF_DISCONNECT = "power_off_disconnect";
+    public static final String SPINNER_POWER_ON_DELAY = "power_on_delay";
     public static final String TOGGLE_MOTION_DETECTION = "motion_detection";
     public static final String SPINNER_MOTION_DETECTION_SENSIVITY = "motion_det_sens";
     public static final String SPINNER_MOTION_TURN_OFF = "spinnerMotionTurnOff"; //
@@ -21,7 +22,6 @@ public class MainSettings {
     public static final String TOGGLE_SPEED_STAMP = "speed_stamp";
     public static final String CONNECTION_LOG= "toggleConnectionLog"; //
     public static final String TOGGLE_PARKING_MODE = "parking_mode";
-
 
     public static final String CAMERA_TIME = "camera_time";
 
@@ -36,8 +36,9 @@ public class MainSettings {
     public static final String[] dataSpinnerDateFormat = {"YYYYMMDD", "DDMMYYYY", "MMDDYYYY"};
     public static final String[] dataSpinnerDefaultModeCameraStarts = {"mode1", "mode2"};
     public static final String[] dataSpinnerPowerOnAutoRecord = {"Button only", "Auto Start"};
-    public static final String[] dataSpinnerStandbyTime = {"off", "1_min" , "3_min", "5_min"};
-    public static final String[] dataSpinnerPowerOffDisconnect = {"1 sec", "3 sec", "10 sec"};
+    public static final String[] dataSpinnerStandbyTime = {"off", "15_sec", "30_sec", "1_min" , "3_min", "5_min"};
+    public static final String[] dataSpinnerPowerOffDisconnect = {"immediate", "3_sec", "10_sec"};
+    public static final String[] dataSpinnerPowerOnDelay = {"off", "5_sec", "10_sec"};
     public static final String[] dataSpinnerMotionDetectionSensitivity = {"high", "medium", "low"};
     public static final String[] dataSpinnerMotionTurnOff = {"5s", "10s", "20s", "30s", "1 minute"};
     public static final String[] dataSpinnerTVOut = {"NTSC", "PAL"};

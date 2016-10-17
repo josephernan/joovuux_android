@@ -52,7 +52,16 @@
                 android:src="@drawable/selector_main_settings_btn"
                 android:scaleType="fitXY"
                 android:duplicateParentState="true" />
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Main Settings"
+                android:id="@+id/textView11"
+                android:textSize="19dp"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:textColor="#999999"
+                android:layout_marginBottom="10dp"/>
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -84,6 +93,16 @@
                 android:src="@drawable/selector_mode_settings_btn"
                 android:scaleType="fitXY"
                 android:duplicateParentState="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mode Settings"
+                android:id="@+id/textView12"
+                android:textSize="19dp"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:textColor="#999999"
+                android:layout_marginBottom="10dp"/>
         </RelativeLayout>
     </LinearLayout>
 
@@ -116,6 +135,16 @@
                 android:src="@drawable/selector_gallery_btn"
                 android:scaleType="fitXY"
                 android:duplicateParentState="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gallery"
+                android:id="@+id/textView13"
+                android:textSize="19dp"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:textColor="#999999"
+                android:layout_marginBottom="10dp"/>
         </RelativeLayout>
 
         <TextView
@@ -140,6 +169,16 @@
                 android:src="@drawable/selector_streaming_btn"
                 android:scaleType="fitXY"
                 android:duplicateParentState="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Live Stream"
+                android:id="@+id/textView14"
+                android:textSize="19dp"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:textColor="#999999"
+                android:layout_marginBottom="10dp"/>
         </RelativeLayout>
     </LinearLayout>
 

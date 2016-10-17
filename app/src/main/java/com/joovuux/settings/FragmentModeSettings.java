@@ -315,10 +315,6 @@ public class FragmentModeSettings extends Fragment {
             tvOption.setText(dataOptions[0]);
         }
 
-
-
-
-
 //        if(((TextView)view.findViewById(R.id.tvVideoResolutions)).getText().toString().contains("HDR") ||
 //                ((TextView)view.findViewById(R.id.tvTimeLapseVideo)).getText().toString().contains("sec") ){
 //
